@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
 import Image from "next/image"
+import Footer from './Footer'
 
 export default function QRCodeGenerator() {
     const [inputText, setInputText] = useState<string>("")
@@ -86,6 +87,7 @@ export default function QRCodeGenerator() {
                 Download QR Code
               </Button>
             )}
+            <Footer />
           </CardContent>
         </Card>
       )
