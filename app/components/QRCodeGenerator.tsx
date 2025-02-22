@@ -12,18 +12,16 @@ export default function QRCodeGenerator() {
     const [inputText, setInputText] = useState<string>("")
     const [qrCodeUrl, setQrCodeIrl] = useState<string>("")
     const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [error, setError] = useState<string | null>(null)
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         if (inputText) {
             setIsLoading(true)
-            setError(null)
             try {
                 const qrCode = await generateQRCode(inputText)
                 setQrCodeIrl(qrCode)
             } catch (error) {
-                setError("Failed to generate QR code")
+                // Handle error if needed
             } finally {
                 setIsLoading(false)
             }
@@ -88,7 +86,6 @@ export default function QRCodeGenerator() {
                 Download QR Code
               </Button>
             )}
-            {error && <p className="mt-4 text-sm text-destructive">{error}</p>}
           </CardContent>
         </Card>
       )
